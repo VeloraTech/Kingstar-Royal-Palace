@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kingstar Royal Palace Academy | Where Kings and Queens are Raised</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- External Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- 1. DYNAMIC ANNOUNCEMENT BANNER -->
+  <div class="announcement-bar">
+    <i class="fa-solid fa-crown"></i>
+    <span id="announcement-text">Admissions are currently open for Creche, KG, Nursery, Primary & Junior Secondary (JSS 1–3)! Enrol today.</span>
+  </div>
+
+  <!-- 2. TOP CONTACT INFO BAR -->
+  <div class="top-contact-bar">
+    <div class="container top-contact-inner">
+      <div class="contact-left">
+        <span><i class="fa-solid fa-location-dot text-gold"></i> 17B Kasali Aremu St, Jankara, Ifako-Ijaiye, Lagos</span>
+        <span><i class="fa-regular fa-clock text-gold"></i> Mon–Thu: 9:00am – 2:00pm • Fri: 9:00am – 12:30pm</span>
+      </div>
+      <div class="contact-right">
+        <a href="tel:+2348032362045"><i class="fa-solid fa-phone text-gold"></i> 0803 236 2045</a>
+        <a href="tel:+2348021444086"><i class="fa-solid fa-phone text-gold"></i> 0802 144 4086</a>
+        <a href="https://www.facebook.com/100072452286513" target="_blank" title="Facebook Page"><i class="fa-brands fa-facebook"></i> Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. MAIN NAVIGATION HEADER -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#home" class="brand-link">
+        <div class="logo-box">
+          <img id="custom-logo-img" src="" alt="Kingstar Logo" class="is-hidden" />
+          <!-- Vector Shield Recreating the Kingstar Badge -->
+          <svg id="default-logo-svg" viewBox="0 0 120 135">
+            <path d="M35 28 L40 12 L50 22 L60 8 L70 22 L80 12 L85 28 Z" fill="#D99B26" stroke="#B47B15" stroke-width="2"/>
+            <rect x="37" y="28" width="46" height="5" rx="2" fill="#B47B15"/>
+            <path d="M22 36 H98 C102 36 105 40 105 46 C105 78 85 102 60 116 C35 102 15 78 15 46 C15 40 18 36 22 36 Z" fill="#FFFFFF" stroke="#6B21A8" stroke-width="5"/>
+            <path d="M34 50 H86 C86 74 74 92 60 102 C46 92 34 74 34 50 Z" fill="#FFFDF7" stroke="#6B21A8" stroke-width="3"/>
+            <path d="M48 51 A12 12 0 0 0 72 51 Z" fill="#FBBF24"/>
+            <line x1="60" y1="62" x2="60" y2="100" stroke="#4A1D7C" stroke-width="2"/>
+            <line x1="42" y1="82" x2="60" y2="72" stroke="#4A1D7C" stroke-width="2"/>
+            <line x1="78" y1="82" x2="60" y2="72" stroke="#4A1D7C" stroke-width="2"/>
+            <circle cx="51" cy="86" r="4" fill="#23033C"/>
+            <circle cx="69" cy="86" r="4" fill="#D99B26"/>
+            <path d="M12 112 Q60 126 108 112 L108 126 Q60 138 12 126 Z" fill="#FFFFFF" stroke="#6B21A8" stroke-width="3"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">THE KINGSTAR</span>
+          <span class="brand-subtitle">Royal Palace Academy</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#academics">Classes</a>
+        <a href="#gallery">Picture Gallery</a>
+        <a href="fees-portal.html">Bursary Portal</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" onclick="openAdminDrawer()" class="btn btn-admin-toggle">
+          <i class="fa-solid fa-lock"></i>
+          <span>Admin Pictures</span>
+        </button>
+        <a href="#contact" class="btn btn-royal">Enrol Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =======================================================================
+       4. INLINE ADMIN PICTURE & CONTENT DRAWER (Opens cleanly at top of page)
+       ======================================================================= -->
+  <section id="admin-drawer" class="admin-drawer is-hidden">
+    <div class="container">
+      <div class="admin-card">
+        
+        <div class="admin-header">
+          <div>
+            <h2><i class="fa-solid fa-crown"></i> Kingstar Admin Picture & Content Manager</h2>
+            <p style="font-size: 12px; color: #e9d5ff;">Upload school pictures, remove temporary photos, or replace banners</p>
+          </div>
+          <button type="button" onclick="closeAdminDrawer()" class="admin-close-btn" title="Close Admin Panel">✕</button>
+        </div>
+
+        <!-- STEP 1: ADMIN PASSWORD SCREEN -->
+        <div id="admin-login-view" class="admin-login-box">
+          <h3>Enter Admin Password</h3>
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">
+            Default password: <strong style="color: var(--royal-700);">kingstar123</strong>
+          </p>
+          <input type="password" id="admin-pass-input" value="kingstar123" placeholder="Enter password..." class="admin-input" style="text-align: center; font-weight: 700; margin-bottom: 10px;" />
+          <p id="login-error" class="is-hidden" style="color: var(--danger); font-size: 12px; font-weight: 700; margin-bottom: 10px;">
+            Incorrect password! Use kingstar123
+          </p>
+          <button type="button" onclick="verifyAdminLogin()" class="btn btn-royal" style="width: 100%; padding: 12px;">
+            Unlock Picture Manager
+          </button>
+        </div>
+
+        <!-- STEP 2: UNLOCKED ADMIN CONTROLS -->
+        <div id="admin-dashboard-view" class="admin-body is-hidden">
+
+          <!-- A. Upload New Photo to Gallery -->
+          <div class="admin-section-box">
+            <h3>1. Upload a New Picture to the School Gallery</h3>
+            <p style="font-size: 12px; color: var(--text-muted);">Select any photo from your phone or computer, give it a caption, and publish it.</p>
+            
+            <form onsubmit="handleAddGalleryPhoto(event)" class="upload-form-grid">
+              <div>
+                <label class="form-label">Select Picture File *</label>
+                <input type="file" id="new-photo-file" accept="image/*" required class="admin-input" />
+              </div>
+              <div>
+                <label class="form-label">Caption / Event Title *</label>
+                <input type="text" id="new-photo-title" required placeholder="e.g. Cultural Day Celebration" class="admin-input" />
+              </div>
+              <div>
+                <label class="form-label">Category</label>
+                <select id="new-photo-cat" class="admin-input">
+                  <option value="Classroom">Classroom</option>
+                  <option value="Events">Events & Cultural Day</option>
+                  <option value="Facilities">Campus & Activities</option>
+                </select>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-royal" style="width: 100%; padding: 12px;">
+                  <i class="fa-solid fa-cloud-arrow-up"></i> Upload & Publish
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- B. Manage or Remove Existing Gallery Photos -->
+          <div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px;">
+              <div>
+                <h3 style="font-family: var(--font-serif); color: var(--royal-900); font-size: 17px;">2. Manage or Remove Current Gallery Pictures</h3>
+                <p style="font-size: 12px; color: var(--text-muted);">Tap <strong>Remove</strong> on any temporary photo to delete it, or <strong>Replace</strong> to swap it with your own.</p>
+              </div>
+              <button type="button" onclick="clearAllTempPhotos()" class="btn btn-danger">
+                <i class="fa-solid fa-trash-can"></i> Remove All Gallery Photos
+              </button>
+            </div>
+
+            <div id="admin-gallery-list" class="admin-gallery-grid"></div>
+          </div>
+
+          <!-- C. Replace Main Homepage Images & Logo -->
+          <div class="admin-section-box" style="background-color: #fffbeb; border-color: #fde68a;">
+            <h3>3. Replace School Logo, Hero Banner & Class Tier Pictures</h3>
+            <p style="font-size: 12px; color: var(--text-muted);">Choose a file in any box below to immediately update that section of the website:</p>
+
+            <div class="admin-core-grid">
+              <div class="admin-slot-card">
+                <label class="form-label">School Logo Badge</label>
+                <input type="file" accept="image/*" onchange="updateCoreImage(event, 'logo')" class="admin-input" style="margin-bottom: 6px;" />
+                <button type="button" onclick="resetLogoToSVG()" style="background: none; color: var(--royal-700); font-size: 11px; font-weight: 700; text-decoration: underline;">
+                  Restore Default Shield Crest
+                </button>
+              </div>
+
+              <div class="admin-slot-card">
+                <label class="form-label">Homepage Hero Banner Photo</label>
+                <input type="file" accept="image/*" onchange="updateCoreImage(event, 'hero')" class="admin-input" />
+              </div>
+
+              <div class="admin-slot-card">
+                <label class="form-label">Creche, KG & Nursery Photo</label>
+                <input type="file" accept="image/*" onchange="updateCoreImage(event, 'nursery')" class="admin-input" />
+              </div>
+
+              <div class="admin-slot-card">
+                <label class="form-label">Primary School (Basic 1–6) Photo</label>
+                <input type="file" accept="image/*" onchange="updateCoreImage(event, 'primary')" class="admin-input" />
+              </div>
+
+              <div class="admin-slot-card">
+                <label class="form-label">Junior Secondary (JSS 1–3) Photo</label>
+                <input type="file" accept="image/*" onchange="updateCoreImage(event, 'secondary')" class="admin-input" />
+              </div>
+
+              <div class="admin-slot-card">
+                <label class="form-label">Top Announcement Banner Text</label>
+                <div style="display: flex; gap: 6px;">
+                  <input type="text" id="admin-announcement-input" class="admin-input" />
+                  <button type="button" onclick="saveAnnouncement()" class="btn btn-royal">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Controls -->
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid #e2e8f0;">
+            <button type="button" onclick="resetToFactoryDefaults()" style="background: none; color: var(--danger); font-size: 12px; font-weight: 700; text-decoration: underline;">
+              Reset Entire Website to Default Template
+            </button>
+            <button type="button" onclick="closeAdminDrawer()" class="btn btn-royal">
+              Done & View Website
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. HERO SECTION -->
+  <section id="home" class="hero-section">
+    <div class="container hero-grid">
+      <div>
+        <div class="motto-pill">
+          <i class="fa-solid fa-crown"></i>
+          <span>God First • Excellence in Learning, Skills & Character</span>
+        </div>
+        <h1 class="hero-title">
+          Welcome to <span class="text-gold">Kingstar Royal Palace</span> Academy
+        </h1>
+        <p class="hero-desc">
+          <strong>"Where Kings and Queens are Raised."</strong> Located at 17B Kasali Aremu Street, Jankara, Ifako-Ijaiye, Lagos, we combine sound academic instruction with moral and character development—guiding and caring for every child as our own.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-gold" style="padding: 13px 24px; font-size: 14px;">
+            <span>Apply for Admission</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#gallery" class="btn btn-outline-light" style="padding: 13px 24px; font-size: 14px;">
+            <i class="fa-regular fa-images"></i>
+            <span>Explore School Gallery</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-value">Creche–JSS</div>
+            <div class="stat-label">Complete Foundation</div>
+          </div>
+          <div>
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Moral & Academic Care</div>
+          </div>
+          <div>
+            <div class="stat-value">Conducive</div>
+            <div class="stat-label">Safe Learning Space</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="hero-image-frame">
+          <img id="hero-banner-img" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1000&q=80" alt="Kingstar Royal Palace Academy Students" />
+          <div class="hero-image-caption">
+            <div>
+              <strong style="color: var(--gold-400); font-size: 14px; display: block;">Raising Future Leaders</strong>
+              <span style="font-size: 12px; color: #e9d5ff;">17B Kasali Aremu St, Jankara, Ifako-Ijaiye</span>
+            </div>
+            <span style="background: rgba(251, 191, 36, 0.2); color: var(--gold-400); border: 1px solid rgba(251, 191, 36, 0.4); padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 800;">
+              Open Now
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ABOUT & PHILOSOPHY SECTION -->
+  <section id="about" class="section-pad">
+    <div class="container about-grid">
+      <div class="philosophy-card">
+        <div style="font-size: 34px; color: var(--gold-400);"><i class="fa-solid fa-crown"></i></div>
+        <h2>Our Royal Philosophy</h2>
+        <p style="color: #e9d5ff; font-size: 15px;">
+          At <strong>Kingstar Royal Palace Academy</strong>, we believe every child carries royalty within. We are committed to guiding and caring for them as our own while instilling godly values, sound academics, practical skills, and noble character.
+        </p>
+        <div class="motto-box">
+          <div style="font-size: 11px; font-weight: 800; color: var(--gold-400); text-transform: uppercase; letter-spacing: 1px;">Official Badge Motto</div>
+          <div style="font-family: var(--font-serif); font-weight: 700; font-size: 14px; margin-top: 4px;">
+            "GOD FIRST • EXCELLENCE IN LEARNING, SKILLS & CHARACTER"
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="section-tag">Why Parents Trust Us</span>
+        <h2 class="section-heading">Nurturing Young Minds for Academic & Moral Distinction</h2>
+        <p style="color: var(--text-muted); font-size: 15px;">
+          Situated in a serene and accessible environment in Jankara, Ifako-Ijaiye, Lagos, our academy provides close attention to every pupil from early years through junior secondary school.
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+            <div>
+              <h4 style="color: var(--royal-900); font-size: 15px;">Sound Academics</h4>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Structured curriculum designed for deep literacy, numeracy, and scientific mastery.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon" style="background: var(--gold-100); color: var(--gold-600);"><i class="fa-solid fa-hand-holding-heart"></i></div>
+            <div>
+              <h4 style="color: var(--royal-900); font-size: 15px;">God First & Character</h4>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Daily moral upbringing, discipline, and leadership etiquette for young royals.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div>
+              <h4 style="color: var(--royal-900); font-size: 15px;">Caring Educators</h4>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Dedicated teachers committed to mentoring and caring for pupils as their own.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon" style="background: var(--gold-100); color: var(--gold-600);"><i class="fa-solid fa-lightbulb"></i></div>
+            <div>
+              <h4 style="color: var(--royal-900); font-size: 15px;">Skills & Creativity</h4>
+              <p style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Hands-on vocational, artistic, and public-speaking activities that build confidence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ACADEMIC TIERS SECTION (Creche/KG/Nursery, Primary 1-6, JSS 1-3) -->
+  <section id="academics" class="tiers-section">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">Our Classes</span>
+        <h2 class="section-heading">Academic Tiers</h2>
+        <p style="font-size: 14px; color: var(--text-muted);">From early childhood discovery to junior secondary excellence, every class builds strong character and academic mastery.</p>
+      </div>
+
+      <div class="tiers-grid">
+        <!-- Tier 1: Creche, KG & Nursery -->
+        <div class="tier-card">
+          <img id="tier-nursery-img" src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80" alt="Creche, KG & Nursery" />
+          <div class="tier-body">
+            <div>
+              <span class="tier-age">Early Years Foundation</span>
+              <h3 class="tier-title">Creche, KG & Nursery (1 & 2)</h3>
+              <p style="font-size: 13px; color: var(--text-muted);">Play-based learning, jolly phonics, early numeracy, sensory discovery, and social habits in a warm, loving environment.</p>
+            </div>
+            <a href="#contact" style="margin-top: 16px; font-size: 12px; font-weight: 800; color: var(--royal-700);">
+              Inquire About Early Years <i class="fa-solid fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2: Primary School -->
+        <div class="tier-card">
+          <img id="tier-primary-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Primary School" />
+          <div class="tier-body">
+            <div>
+              <span class="tier-age">Basic 1 – Basic 6</span>
+              <h3 class="tier-title">Primary School</h3>
+              <p style="font-size: 13px; color: var(--text-muted);">Strong foundation in Mathematics, English Studies, Basic Science & Technology, Social Studies, Vocational Skills, and Common Entrance readiness.</p>
+            </div>
+            <a href="#contact" style="margin-top: 16px; font-size: 12px; font-weight: 800; color: var(--royal-700);">
+              Inquire About Primary <i class="fa-solid fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 3: Junior Secondary -->
+        <div class="tier-card">
+          <img id="tier-secondary-img" src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80" alt="Junior Secondary JSS 1-3" />
+          <div class="tier-body">
+            <div>
+              <span class="tier-age">JSS 1 – JSS 3</span>
+              <h3 class="tier-title">Junior Secondary School</h3>
+              <p style="font-size: 13px; color: var(--text-muted);">Comprehensive junior secondary curriculum, STEM subjects, essay writing, citizenship studies, leadership coaching, and BECE/Junior WAEC preparation.</p>
+            </div>
+            <a href="#contact" style="margin-top: 16px; font-size: 12px; font-weight: 800; color: var(--royal-700);">
+              Inquire About JSS 1–3 <i class="fa-solid fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. DYNAMIC PICTURE GALLERY & NEWS SECTION -->
+  <section id="gallery" class="section-pad">
+    <div class="container">
+      <div class="gallery-top-bar">
+        <div>
+          <span class="section-tag">Life at the Palace</span>
+          <h2 class="section-heading" style="margin-bottom: 4px;">School Picture Gallery & Events</h2>
+          <p style="font-size: 14px; color: var(--text-muted);">Moments from our classrooms, cultural days, excursions, and celebrations.</p>
+        </div>
+
+        <div class="filter-controls">
+          <button type="button" onclick="filterGallery('All')" class="filter-btn active" data-cat="All">All Photos</button>
+          <button type="button" onclick="filterGallery('Classroom')" class="filter-btn" data-cat="Classroom">Classroom</button>
+          <button type="button" onclick="filterGallery('Events')" class="filter-btn" data-cat="Events">Events & Cultural Day</button>
+          <button type="button" onclick="filterGallery('Facilities')" class="filter-btn" data-cat="Facilities">Campus & Activities</button>
+          <button type="button" onclick="openAdminDrawer()" class="btn btn-gold">
+            <i class="fa-solid fa-plus"></i> Add / Remove Pictures
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Gallery Grid -->
+      <div id="public-gallery-grid" class="public-gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- 9. CONTACT, ADMISSIONS & MAP SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        
+        <div>
+          <span class="section-tag" style="background: rgba(255,255,255,0.12); color: var(--gold-400);">Visit or Call Us</span>
+          <h2 class="section-heading" style="color: var(--white);">Enrol Your Child at Kingstar Today</h2>
+          <p style="font-size: 14px; color: #e9d5ff;">
+            Visit our campus at Jankara, Ifako-Ijaiye during school hours or send an inquiry directly to our admissions office on WhatsApp.
+          </p>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong style="color: var(--gold-400); font-size: 13px; display: block;">School Address</strong>
+                <span style="font-size: 14px; color: #f3e8ff;">17B Kasali Aremu Street, Jankara, Ifako-Ijaiye, Lagos 101232, Nigeria</span>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div>
+                <strong style="color: var(--gold-400); font-size: 13px; display: block;">Telephone & WhatsApp</strong>
+                <span style="font-size: 14px; color: #f3e8ff;">
+                  <a href="tel:+2348032362045">+234 803 236 2045</a> • <a href="tel:+2348021444086">+234 802 144 4086</a>
+                </span>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon"><i class="fa-regular fa-clock"></i></div>
+              <div>
+                <strong style="color: var(--gold-400); font-size: 13px; display: block;">Operating Hours</strong>
+                <span style="font-size: 14px; color: #f3e8ff; display: block;">Monday – Thursday: 9:00 AM – 2:00 PM</span>
+                <span style="font-size: 14px; color: #f3e8ff; display: block;">Friday: 9:00 AM – 12:30 PM (Sat–Sun: Closed)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-box">
+            <iframe
+              src="https://www.google.com/maps?q=17B+Kasali+Aremu+Street,+Ifako-Ijaiye,+Lagos,+Nigeria&output=embed"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <div>
+          <div class="inquiry-card">
+            <h3>Quick Admission Inquiry</h3>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
+              Fill in your details below to message the school office directly on WhatsApp.
+            </p>
+
+            <form onsubmit="sendWhatsAppInquiry(event)">
+              <div class="form-row-2">
+                <div>
+                  <label class="form-label">Parent / Guardian Name *</label>
+                  <input type="text" id="parent-name" required placeholder="e.g. Mrs. Adewale" class="admin-input" />
+                </div>
+                <div>
+                  <label class="form-label">Phone Number *</label>
+                  <input type="tel" id="parent-phone" required placeholder="e.g. 0803 000 0000" class="admin-input" />
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div>
+                  <label class="form-label">Child's Full Name</label>
+                  <input type="text" id="child-name" placeholder="Child's Name" class="admin-input" />
+                </div>
+                <div>
+                  <label class="form-label">Class Applying For *</label>
+                  <select id="class-tier" class="admin-input">
+                    <option value="Creche / Kindergarten">Creche / Kindergarten (KG)</option>
+                    <option value="Nursery 1 - 2">Nursery 1 – 2</option>
+                    <option value="Primary (Basic 1 - 6)">Primary (Basic 1 – 6)</option>
+                    <option value="Junior Secondary (JSS 1 - 3)">Junior Secondary (JSS 1 – 3)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 18px;">
+                <label class="form-label">Message or Question</label>
+                <textarea id="inquiry-msg" rows="3" placeholder="I would like to inquire about admission requirements and school fees..." class="admin-input"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-royal" style="width: 100%; padding: 14px; font-size: 14px;">
+                <i class="fa-brands fa-whatsapp" style="font-size: 18px; color: #4ade80;"></i>
+                <span>Send Inquiry via WhatsApp (0803 236 2045)</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 <strong>Kingstar Royal Palace Academy</strong> (17B Kasali Aremu St, Jankara, Ifako-Ijaiye, Lagos). All rights reserved.</p>
+        <div style="display: flex; gap: 16px;">
+          <a href="https://www.facebook.com/100072452286513" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook Page</a>
+          <a href="fees-portal.html">Bursary Fee Tracker</a>
+          <button type="button" onclick="openAdminDrawer()" style="background: none; color: var(--gold-400); text-decoration: underline; font-size: 12px;">Admin Picture Manager</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp Chat Button -->
+  <a href="https://wa.me/2348032362045?text=Hello%20Kingstar%20Royal%20Palace%20Academy,%20I%20would%20like%20to%20make%20an%20inquiry%20about%20admissions." target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- =======================================================================
+       10. TESTED FAIL-SAFE JAVASCRIPT ENGINE
+       ======================================================================= -->
+  <script>
+    var STORAGE_KEY = 'kingstar_royal_site_v2';
+    var currentCategory = 'All';
+    var isAdminUnlocked = false;
+
+    var defaultSiteData = {
+      announcement: "Admissions are currently open for Creche, KG, Nursery, Primary & Junior Secondary (JSS 1–3)! Enrol today.",
+      coreImages: {
+        logo: "",
+        hero: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1000&q=80",
+        nursery: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80",
+        primary: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
+        secondary: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80"
+      },
+      gallery: [
+        {
+          id: 'temp-1',
+          title: 'Interactive Classroom Learning (Temporary Photo)',
+          category: 'Classroom',
+          url: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80',
+          isTemp: true
+        },
+        {
+          id: 'temp-2',
+          title: 'Early Years Creative & Practical Skills (Temporary Photo)',
+          category: 'Classroom',
+          url: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80',
+          isTemp: true
+        },
+        {
+          id: 'temp-3',
+          title: 'Cultural Day & Prize-Giving Celebration (Temporary Photo)',
+          category: 'Events',
+          url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80',
+          isTemp: true
+        }
+      ]
+    };
+
+    var memoryFallbackData = null;
+
+    function getSiteData() {
+      try {
+        var saved = window.localStorage.getItem(STORAGE_KEY);
+        if (saved) return JSON.parse(saved);
+      } catch (e) {
+        if (memoryFallbackData) return memoryFallbackData;
+      }
+      memoryFallbackData = JSON.parse(JSON.stringify(defaultSiteData));
+      return memoryFallbackData;
+    }
+
+    function saveSiteData(data) {
+      memoryFallbackData = data;
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch (err) {
+        alert("Browser storage is full! Please remove an older photo before adding a large new one.");
+      }
+    }
+
+    // Compress uploaded images with automatic fallback
+    function compressImageFile(file, maxWidth, quality) {
+      maxWidth = maxWidth || 1000;
+      quality = quality || 0.78;
+      return new Promise(function(resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var rawDataUrl = e.target.result;
+          var img = new Image();
+          img.onload = function() {
+            try {
+              var canvas = document.createElement('canvas');
+              var width = img.width;
+              var height = img.height;
+              if (width > maxWidth) {
+                height = Math.round((height * maxWidth) / width);
+                width = maxWidth;
+              }
+              canvas.width = width;
+              canvas.height = height;
+              var ctx = canvas.getContext('2d');
+              ctx.drawImage(img, 0, 0, width, height);
+              resolve(canvas.toDataURL('image/jpeg', quality));
+            } catch (err) {
+              resolve(rawDataUrl);
+            }
+          };
+          img.onerror = function() { resolve(rawDataUrl); };
+          img.src = rawDataUrl;
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderSite() {
+      var data = getSiteData();
+
+      // 1. Update Announcement Text
+      document.getElementById('announcement-text').textContent = data.announcement;
+      var annInput = document.getElementById('admin-announcement-input');
+      if (annInput) annInput.value = data.announcement;
+
+      // 2. Update Logo & Core Images
+      var customLogo = document.getElementById('custom-logo-img');
+      var defaultSvg = document.getElementById('default-logo-svg');
+      if (data.coreImages.logo) {
+        customLogo.src = data.coreImages.logo;
+        customLogo.classList.remove('is-hidden');
+        defaultSvg.classList.add('is-hidden');
+      } else {
+        customLogo.classList.add('is-hidden');
+        defaultSvg.classList.remove('is-hidden');
+      }
+
+      document.getElementById('hero-banner-img').src = data.coreImages.hero;
+      document.getElementById('tier-nursery-img').src = data.coreImages.nursery;
+      document.getElementById('tier-primary-img').src = data.coreImages.primary;
+      document.getElementById('tier-secondary-img').src = data.coreImages.secondary;
+
+      // 3. Render Public Gallery Grid
+      var grid = document.getElementById('public-gallery-grid');
+      var filtered = currentCategory === 'All'
+        ? data.gallery
+        : data.gallery.filter(function(item) { return item.category === currentCategory; });
+
+      if (filtered.length === 0) {
+        grid.innerHTML =
+          '<div style="grid-column: 1 / -1; text-align: center; padding: 44px 20px; background: #fff; border-radius: 14px; border: 2px dashed #e9d5ff;">' +
+            '<p style="font-weight: 700; color: var(--royal-900); margin-bottom: 10px;">No pictures in this category yet.</p>' +
+            '<button type="button" onclick="openAdminDrawer()" class="btn btn-royal">+ Upload Pictures in Admin Panel</button>' +
+          '</div>';
+      } else {
+        grid.innerHTML = filtered.map(function(item) {
+          return (
+            '<div class="gallery-card">' +
+              '<div class="gallery-img-box">' +
+                '<img src="' + item.url + '" alt="' + item.title.replace(/"/g, '&quot;') + '" />' +
+                '<span class="gallery-cat-badge">' + item.category + '</span>' +
+                (item.isTemp ? '<span class="gallery-temp-badge">Temporary</span>' : '') +
+              '</div>' +
+              '<div class="gallery-caption-box">' + item.title + '</div>' +
+            '</div>'
+          );
+        }).join('');
+      }
+
+      // 4. Render Admin Gallery Manager List
+      var adminList = document.getElementById('admin-gallery-list');
+      if (adminList) {
+        if (data.gallery.length === 0) {
+          adminList.innerHTML = '<p style="font-size: 13px; color: var(--text-muted); grid-column: 1 / -1;">All temporary pictures removed! Use Box 1 above to upload your school pictures.</p>';
+        } else {
+          adminList.innerHTML = data.gallery.map(function(item) {
+            return (
+              '<div class="admin-photo-card">' +
+                '<div class="admin-photo-preview">' +
+                  '<img src="' + item.url + '" alt="" />' +
+                  '<span class="admin-tag">' + item.category + '</span>' +
+                '</div>' +
+                '<div class="admin-photo-controls">' +
+                  '<input type="text" value="' + item.title.replace(/"/g, '&quot;') + '" ' +
+                    'onchange="updateGalleryCaption(\'' + item.id + '\', this.value)" ' +
+                    'class="admin-input" style="padding: 7px 10px; font-size: 12px; font-weight: 600;" title="Edit Caption" />' +
+                  '<div class="admin-photo-actions">' +
+                    '<label class="btn btn-admin-toggle" style="flex: 1; padding: 7px 10px; font-size: 11px; cursor: pointer;">' +
+                      '<i class="fa-solid fa-rotate"></i> Replace' +
+                      '<input type="file" accept="image/*" class="is-hidden" onchange="replaceGalleryPhoto(event, \'' + item.id + '\')" />' +
+                    '</label>' +
+                    '<button type="button" onclick="deleteGalleryPhoto(\'' + item.id + '\')" class="btn btn-danger" style="padding: 7px 12px; font-size: 11px;">' +
+                      '<i class="fa-solid fa-trash-can"></i> Remove' +
+                    '</button>' +
+                  '</div>' +
+                '</div>' +
+              '</div>'
+            );
+          }).join('');
+        }
+      }
+    }
+
+    // Filter Public Gallery Buttons
+    function filterGallery(cat) {
+      currentCategory = cat;
+      var btns = document.querySelectorAll('.filter-btn');
+      for (var i = 0; i < btns.length; i++) {
+        if (btns[i].getAttribute('data-cat') === cat) {
+          btns[i].classList.add('active');
+        } else {
+          btns[i].classList.remove('active');
+        }
+      }
+      renderSite();
+    }
+
+    // Open & Close Inline Admin Drawer
+    function openAdminDrawer() {
+      var drawer = document.getElementById('admin-drawer');
+      drawer.classList.remove('is-hidden');
+      if (isAdminUnlocked) {
+        document.getElementById('admin-login-view').classList.add('is-hidden');
+        document.getElementById('admin-dashboard-view').classList.remove('is-hidden');
+        renderSite();
+      }
+      drawer.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function closeAdminDrawer() {
+      document.getElementById('admin-drawer').classList.add('is-hidden');
+    }
+
+    function verifyAdminLogin() {
+      var pass = document.getElementById('admin-pass-input').value.trim();
+      if (pass === 'kingstar123') {
+        isAdminUnlocked = true;
+        document.getElementById('login-error').classList.add('is-hidden');
+        document.getElementById('admin-login-view').classList.add('is-hidden');
+        document.getElementById('admin-dashboard-view').classList.remove('is-hidden');
+        renderSite();
+      } else {
+        document.getElementById('login-error').classList.remove('is-hidden');
+      }
+    }
+
+    // Upload New Gallery Photo
+    async function handleAddGalleryPhoto(e) {
+      e.preventDefault();
+      var fileInput = document.getElementById('new-photo-file');
+      var titleInput = document.getElementById('new-photo-title');
+      var catInput = document.getElementById('new-photo-cat');
+
+      if (!fileInput.files || !fileInput.files[0]) return;
+      var compressedDataUrl = await compressImageFile(fileInput.files[0], 1000, 0.78);
+
+      var data = getSiteData();
+      data.gallery.unshift({
+        id: 'photo-' + Date.now(),
+        title: titleInput.value.trim(),
+        category: catInput.value,
+        url: compressedDataUrl,
+        isTemp: false
+      });
+
+      saveSiteData(data);
+      fileInput.value = '';
+      titleInput.value = '';
+      renderSite();
+    }
+
+    // Edit Caption
+    function updateGalleryCaption(id, newTitle) {
+      var data = getSiteData();
+      var item = data.gallery.find(function(p) { return p.id === id; });
+      if (item) {
+        item.title = newTitle;
+        item.isTemp = false;
+        saveSiteData(data);
+        renderSite();
+      }
+    }
+
+    // Replace Existing Gallery Photo
+    async function replaceGalleryPhoto(event, id) {
+      var file = event.target.files[0];
+      if (!file) return;
+      var compressed = await compressImageFile(file, 1000, 0.78);
+      var data = getSiteData();
+      var item = data.gallery.find(function(p) { return p.id === id; });
+      if (item) {
+        item.url = compressed;
+        item.isTemp = false;
+        saveSiteData(data);
+        renderSite();
+      }
+    }
+
+    // Remove Single Photo
+    function deleteGalleryPhoto(id) {
+      var data = getSiteData();
+      data.gallery = data.gallery.filter(function(p) { return p.id !== id; });
+      saveSiteData(data);
+      renderSite();
+    }
+
+    // Remove All Gallery Photos
+    function clearAllTempPhotos() {
+      if (!confirm("Remove all current pictures from the gallery?")) return;
+      var data = getSiteData();
+      data.gallery = [];
+      saveSiteData(data);
+      renderSite();
+    }
+
+    // Replace Core Banners & Logo
+    async function updateCoreImage(event, slot) {
+      var file = event.target.files[0];
+      if (!file) return;
+      var maxW = slot === 'logo' ? 400 : 1100;
+      var compressed = await compressImageFile(file, maxW, 0.8);
+      var data = getSiteData();
+      data.coreImages[slot] = compressed;
+      saveSiteData(data);
+      renderSite();
+    }
+
+    function resetLogoToSVG() {
+      var data = getSiteData();
+      data.coreImages.logo = "";
+      saveSiteData(data);
+      renderSite();
+    }
+
+    function saveAnnouncement() {
+      var val = document.getElementById('admin-announcement-input').value.trim();
+      if (!val) return;
+      var data = getSiteData();
+      data.announcement = val;
+      saveSiteData(data);
+      renderSite();
+    }
+
+    function resetToFactoryDefaults() {
+      if (!confirm("Reset all pictures and text back to the original template?")) return;
+      try { window.localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+      memoryFallbackData = null;
+      renderSite();
+    }
+
+    // WhatsApp Admission Form Handler
+    function sendWhatsAppInquiry(e) {
+      e.preventDefault();
+      var parent = document.getElementById('parent-name').value.trim();
+      var phone = document.getElementById('parent-phone').value.trim();
+      var child = document.getElementById('child-name').value.trim();
+      var tier = document.getElementById('class-tier').value;
+      var msg = document.getElementById('inquiry-msg').value.trim();
+
+      var text = 'Hello Kingstar Royal Palace Academy,%0A%0A*New Admission Inquiry*%0A• *Parent Name:* ' + parent +
+                 '%0A• *Phone:* ' + phone +
+                 '%0A• *Child Name:* ' + (child || 'N/A') +
+                 '%0A• *Class Tier:* ' + tier +
+                 '%0A• *Message:* ' + (msg || 'Please share admission details.');
+      window.open('https://wa.me/2348032362045?text=' + text, '_blank');
+    }
+
+    // Initialize Website Immediately
+    renderSite();
+  </script>
+</body>
+</html>
